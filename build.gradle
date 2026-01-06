@@ -11,10 +11,10 @@ repositories {
 }
 
 sonar {
-  properties {
-    property "sonar.projectKey", "Olympus-Engine_Hephaestus-Engine"
-    property "sonar.organization", "olympus-engine"
-  }
+    properties {
+        property "sonar.projectKey", "Olympus-Engine_Hephaestus-Engine"
+        property "sonar.organization", "olympus-engine"
+    }
 }
 
 dependencies {

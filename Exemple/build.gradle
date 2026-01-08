@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id "org.sonarqube" version "7.2.2.6593"
 }
 
 group = 'fr.mrqsdf'
@@ -10,18 +9,15 @@ repositories {
     mavenCentral()
 }
 
-sonar {
-    properties {
-        property "sonar.projectKey", "Olympus-Engine_Hephaestus-Engine"
-        property "sonar.organization", "olympus-engine"
-    }
-}
-
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
-    implementation "io.github.classgraph:classgraph:4.8.184"
+    //implement root module
+    implementation project(':')
+
+    implementation 'com.googlecode.lanterna:lanterna:3.1.3'
+
 }
 
 test {

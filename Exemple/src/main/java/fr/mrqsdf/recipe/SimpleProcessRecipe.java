@@ -90,6 +90,10 @@ public abstract class SimpleProcessRecipe implements ProcessRecipe {
     public int inputCount() {
         return inputs.size();
     }
+    @Override
+    public int outputCount() {
+        return outputs.size();
+    }
 
     @Override
     public TimeWindow timeWindowOrNull() {
@@ -148,4 +152,6 @@ public abstract class SimpleProcessRecipe implements ProcessRecipe {
             }
         };
     }
+
+
 }

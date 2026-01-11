@@ -2,6 +2,7 @@ package fr.mrqsdf.recipe;
 
 import fr.olympus.hephaestus.processing.MaterialMatcher;
 import fr.olympus.hephaestus.processing.RecipeAnnotation;
+import fr.olympus.hephaestus.processing.TimeWindow;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public final class SawPlank extends SimpleProcessRecipe {
                 List.of(MaterialMatcher.id(LOG_OAK)),
                 List.of(MaterialMatcher.id(PLANK_OAK)),
                 1,
-                null
+                new TimeWindow(2f, 4f)
         );
     }
 }

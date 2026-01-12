@@ -9,7 +9,6 @@ import java.util.List;
 import static fr.mrqsdf.resources.Data.*;
 import static fr.mrqsdf.utils.GroupsUtils.selectorIds;
 
-// Route 2: acier = iron_ingot + charcoal (blast furnace) => nécessite MakeCharcoal
 @RecipeAnnotation(id = "ex:recipe/smelt_steel_charcoal", factoryIds = {FURNACE_BLAST})
 public final class SmeltSteelCharcoal extends SimpleProcessRecipe {
     public SmeltSteelCharcoal() {

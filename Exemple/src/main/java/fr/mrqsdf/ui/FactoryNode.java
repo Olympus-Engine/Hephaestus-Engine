@@ -2,7 +2,7 @@ package fr.mrqsdf.ui;
 
 public final class FactoryNode implements CraftNode {
 
-    private final String id;     // unique interne
+    private final String id;     // unique Id
     private final String label;  // ex: "GROUP ex:group/furnace [AUTO 8-15s]"
 
     private int x, y;

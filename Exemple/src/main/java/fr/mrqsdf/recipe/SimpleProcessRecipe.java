@@ -9,11 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * Impl "démo" :
- * - planning: id/selector/ordered/inputs/outputs/cost
- * - runtime: canStart/tryComplete très simplifiés (suffisant pour l'exemple)
- */
+
 public abstract class SimpleProcessRecipe implements ProcessRecipe {
 
     private final String id;
@@ -90,6 +86,10 @@ public abstract class SimpleProcessRecipe implements ProcessRecipe {
     public int inputCount() {
         return inputs.size();
     }
+    @Override
+    public int outputCount() {
+        return outputs.size();
+    }
 
     @Override
     public TimeWindow timeWindowOrNull() {
@@ -148,4 +148,6 @@ public abstract class SimpleProcessRecipe implements ProcessRecipe {
             }
         };
     }
+
+
 }

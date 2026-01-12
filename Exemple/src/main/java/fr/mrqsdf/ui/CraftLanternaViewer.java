@@ -6,7 +6,7 @@ import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import fr.mrqsdf.Planner.Plan;
+import fr.mrqsdf.planner.Plan;
 
 import java.io.IOException;
 import java.util.Set;

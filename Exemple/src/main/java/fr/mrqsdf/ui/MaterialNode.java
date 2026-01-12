@@ -4,7 +4,7 @@ public final class MaterialNode implements CraftNode {
 
     public enum Role { RAW, INTERMEDIATE, FINAL }
 
-    private final String id;          // unique interne
+    private final String id;          // unique Id
     private final String materialId;  // ex: ex:coal
     private final Role role;
 

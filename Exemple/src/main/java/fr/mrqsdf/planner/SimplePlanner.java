@@ -1,4 +1,4 @@
-package fr.mrqsdf.Planner;
+package fr.mrqsdf.planner;
 
 import fr.olympus.hephaestus.processing.MaterialMatcher;
 import fr.olympus.hephaestus.processing.ProcessRecipe;

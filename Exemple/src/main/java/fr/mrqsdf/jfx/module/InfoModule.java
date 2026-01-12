@@ -1,6 +1,3 @@
-// ============================================================================
-// FILE: fr/mrqsdf/jfx/module/InfoModule.java
-// ============================================================================
 package fr.mrqsdf.jfx.module;
 
 import javafx.scene.control.Label;
@@ -21,10 +18,10 @@ public class InfoModule extends VBox {
         this.setSpacing(5);
 
         this.setStyle("""
-            -fx-padding: 6;
-            -fx-background-color: #252525;
-            -fx-background-radius: 8;
-            """);
+                -fx-padding: 6;
+                -fx-background-color: #252525;
+                -fx-background-radius: 8;
+                """);
 
         this.amountLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold;");
     }

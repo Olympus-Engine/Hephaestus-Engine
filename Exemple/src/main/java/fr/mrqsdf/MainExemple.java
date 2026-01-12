@@ -1,7 +1,7 @@
 package fr.mrqsdf;
 
-import fr.mrqsdf.Planner.Plan;
-import fr.mrqsdf.Planner.SimplePlanner;
+import fr.mrqsdf.planner.Plan;
+import fr.mrqsdf.planner.SimplePlanner;
 import fr.mrqsdf.ui.CraftLanternaViewer;
 import fr.olympus.hephaestus.Hephaestus;
 import fr.olympus.hephaestus.factory.Factory;
@@ -39,7 +39,7 @@ public final class MainExemple {
 
         SimplePlanner planner = new SimplePlanner(allRecipes, data);
 
-        // ======= BEST ONLY : affichage Lanterna navigable =======
+        // ======= BEST ONLY : display Lanterna =======
         Plan bestSword = planner.bestOnly(STEEL_SWORD, available, 20, 5000);
         CraftLanternaViewer.viewBestOnly(bestSword, available);
     }

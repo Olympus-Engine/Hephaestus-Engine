@@ -2,7 +2,7 @@ package fr.mrqsdf.ui;
 
 public sealed interface CraftNode permits MaterialNode, FactoryNode {
 
-    String id();      // identifiant unique interne (pas le materialId)
+    String id();      // unique node id
     int x();
     int y();
     int w();

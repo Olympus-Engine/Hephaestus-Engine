@@ -1,7 +1,7 @@
 package fr.mrqsdf.ui;
 
-import fr.mrqsdf.Planner.Plan;
-import fr.mrqsdf.Planner.PlanNode;
+import fr.mrqsdf.planner.Plan;
+import fr.mrqsdf.planner.PlanNode;
 import fr.olympus.hephaestus.processing.ProcessRecipe;
 import fr.olympus.hephaestus.processing.TimeWindow;
 import fr.olympus.hephaestus.register.RecipeSelector;
@@ -14,7 +14,6 @@ public final class CraftGraphBuilder {
 
     private final AtomicInteger ids = new AtomicInteger();
 
-    /** Méthode utilisée par ton viewer. */
     public static CraftGraph fromBestOnlyPlan(Plan plan, Set<String> availableRawIds) {
         return new CraftGraphBuilder().build(plan, availableRawIds);
     }
@@ -37,7 +36,6 @@ public final class CraftGraphBuilder {
                                   String finalTarget,
                                   Set<String> available) {
 
-        // 1) Node matériau (unique par PlanNode)
         MaterialNode mn = matNodes.get(node);
         if (mn == null) {
             MaterialNode.Role role = computeRole(node, finalTarget);
@@ -46,12 +44,10 @@ public final class CraftGraphBuilder {
             g.addNode(mn);
         }
 
-        // 2) Leaf : rien d'autre
         if (node.recipe == null) {
             return mn;
         }
 
-        // 3) Factory node + edges childMat -> factory -> mn
         ProcessRecipe r = node.recipe;
         FactoryNode fn = new FactoryNode("F" + ids.incrementAndGet(), factoryLabel(r));
         g.addNode(fn);
@@ -68,12 +64,10 @@ public final class CraftGraphBuilder {
     private MaterialNode.Role computeRole(PlanNode node, String finalTarget) {
         if (node == null) return MaterialNode.Role.INTERMEDIATE;
 
-        // FINAL si c'est le target final
         if (finalTarget != null && finalTarget.equals(node.target)) {
             return MaterialNode.Role.FINAL;
         }
 
-        // RAW si leaf (matière première de base), même si pas “available”
         if (node.recipe == null) {
             return MaterialNode.Role.RAW;
         }

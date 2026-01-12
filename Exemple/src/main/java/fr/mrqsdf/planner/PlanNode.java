@@ -1,4 +1,4 @@
-package fr.mrqsdf.Planner;
+package fr.mrqsdf.planner;
 
 import fr.olympus.hephaestus.processing.ProcessRecipe;
 
@@ -6,7 +6,7 @@ import java.util.List;
 
 public final class PlanNode {
     public final String target;
-    public final ProcessRecipe recipe; // null => dispo
+    public final ProcessRecipe recipe; // null => available
     public final List<PlanNode> children;
 
     PlanNode(String target, ProcessRecipe recipe, List<PlanNode> children) {

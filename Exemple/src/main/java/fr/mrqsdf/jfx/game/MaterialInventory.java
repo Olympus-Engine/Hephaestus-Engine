@@ -1,6 +1,3 @@
-// ============================================================================
-// FILE: fr/mrqsdf/jfx/game/MaterialInventory.java
-// ============================================================================
 package fr.mrqsdf.jfx.game;
 
 import javafx.beans.property.IntegerProperty;

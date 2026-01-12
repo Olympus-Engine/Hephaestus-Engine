@@ -1,7 +1,3 @@
-// ============================================================================
-// FILE: fr/mrqsdf/jfx/game/GameContext.java
-// AJOUT: grantOutputsFromRecipe(...) + choix output via MaterialMatcher
-// ============================================================================
 package fr.mrqsdf.jfx.game;
 
 import fr.olympus.hephaestus.factory.Factory;
@@ -35,7 +31,6 @@ public final class GameContext {
     public boolean tryStartProduction(Factory factory, ProcessRecipe recipe) {
         if (factory == null || recipe == null) return false;
 
-        // --- Choix des inputs (1 par matcher)
         List<String> chosenIds = new ArrayList<>();
         for (MaterialMatcher matcher : recipe.inputs()) {
             String chosen = chooseOneMaterialIdForInputMatcher(matcher);
@@ -43,7 +38,6 @@ public final class GameContext {
             chosenIds.add(chosen);
         }
 
-        // --- Vérif quantité
         Map<String, Integer> needed = new HashMap<>();
         for (String id : chosenIds) needed.merge(id, 1, Integer::sum);
 
@@ -51,23 +45,19 @@ public final class GameContext {
             if (!inventory.hasAtLeast(e.getKey(), e.getValue())) return false;
         }
 
-        // --- Consomme
         for (Map.Entry<String, Integer> e : needed.entrySet()) {
             if (!inventory.remove(e.getKey(), e.getValue())) return false;
         }
 
-        // --- Injecte dans la factory
         for (String id : chosenIds) {
             factory.insert(new MaterialInstance(id, dummyVoxels()));
         }
 
-        // --- Lance session hephaestus (même si on force-complete côté jeu)
         factory.setSession(recipe);
         factory.startFactory();
         return true;
     }
 
-    /** Tick Hephaestus (si certaines recipes produisent d'elles-mêmes) */
     public int tickFactory(Factory factory, float dt) {
         if (factory == null) return 0;
 
@@ -90,7 +80,6 @@ public final class GameContext {
         return data.getProcessRecipesByFactoryId(factory.getRegistryId(), factory.getRegistryGroups(), factory.getRegistryLevel());
     }
 
-    /** Force: ajoute les outputs de la recipe dans l'inventaire */
     public int grantOutputsFromRecipe(ProcessRecipe recipe) {
         if (recipe == null) return 0;
 
@@ -109,10 +98,6 @@ public final class GameContext {
         TimeWindow w = recipe.timeWindowOrNull();
         return w == null ? 0f : w.minSeconds();
     }
-
-    // -----------------------
-    // Matcher resolution
-    // -----------------------
 
     private String chooseOneMaterialIdForInputMatcher(MaterialMatcher matcher) {
         if (matcher == null) return null;

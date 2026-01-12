@@ -9,7 +9,6 @@ import java.util.List;
 import static fr.mrqsdf.resources.Data.*;
 import static fr.mrqsdf.utils.GroupsUtils.selectorGroups;
 
-// ---------- ProcessRecipes ----------
 @RecipeAnnotation(id = "ex:recipe/saw_plank", factoryGroups = {GROUP_SAWMILL})
 public final class SawPlank extends SimpleProcessRecipe {
     public SawPlank() {

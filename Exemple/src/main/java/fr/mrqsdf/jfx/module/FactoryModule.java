@@ -1,7 +1,4 @@
-// ============================================================================
-// FILE: fr/mrqsdf/jfx/module/FactoryModule.java
-// FIX: prod relançable + outputs garantis après minSeconds
-// ============================================================================
+
 package fr.mrqsdf.jfx.module;
 
 import fr.mrqsdf.jfx.game.GameContext;
@@ -152,18 +149,14 @@ public class FactoryModule extends Pane {
     }
 
     public void tick(float dt) {
-        // 1) Laisse Hephaestus tourner (si jamais certaines recipes produisent réellement)
         game.tickFactory(factory, dt);
 
-        // 2) Timer "jeu" (fallback)
         if (!producing || recipe == null) return;
 
-        // Decompte
         remainingSeconds -= dt;
         System.out.println("Factory " + factoryId + " producing " + recipeId + ", remaining time: " + remainingSeconds + " s");
         if (remainingSeconds < 0) remainingSeconds = 0;
 
-        // Si la session a été terminée par Hephaestus (rare dans ton cas), on libère
         if (!factory.getSession()) {
             producing = false;
             float min = game.minSecondsOrZero(recipe);
@@ -175,10 +168,8 @@ public class FactoryModule extends Pane {
     }
 
     private void completeProduction() {
-        // Donne outputs selon recipe.outputs()
         game.grantOutputsFromRecipe(recipe);
 
-        // Stop la factory => session cleared => relançable
         factory.stopFactory();
 
         producing = false;
@@ -332,7 +323,6 @@ public class FactoryModule extends Pane {
             }
         });
 
-        // SHIFT drag pour déplacer
         setOnMousePressed(e -> {
             if (e.getButton() == MouseButton.PRIMARY && e.isShiftDown()) {
                 dragging = true;

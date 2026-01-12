@@ -1,7 +1,4 @@
-// ============================================================================
-// FILE: fr/mrqsdf/jfx/module/CenterModule.java
-// (modif: après création, on force un resize/autosize avant de placer)
-// ============================================================================
+
 package fr.mrqsdf.jfx.module;
 
 import fr.mrqsdf.jfx.game.GameContext;
@@ -31,7 +28,6 @@ public class CenterModule extends Pane {
             Factory f = game.data().createFactory(placingFactoryId);
             FactoryModule fm = new FactoryModule(game, f);
 
-            // force size (important)
             fm.applyCss();
             fm.autosize();
             fm.resize(fm.getPrefWidth(), fm.getPrefHeight());

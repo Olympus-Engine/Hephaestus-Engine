@@ -1,4 +1,4 @@
-package fr.mrqsdf.Planner;
+package fr.mrqsdf.planner;
 
 import java.util.List;
 

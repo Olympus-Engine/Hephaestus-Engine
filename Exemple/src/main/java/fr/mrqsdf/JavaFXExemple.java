@@ -1,11 +1,3 @@
-// ============================================================================
-// FILE: fr/mrqsdf/JavaFXExemple.java
-// App complète:
-// - left: MaterialModule (bind inventaire)
-// - center: CenterModule
-// - bottom: ListView des factory ids (registry)
-// - AnimationTimer tick
-// ============================================================================
 package fr.mrqsdf;
 
 import fr.mrqsdf.jfx.game.GameContext;
